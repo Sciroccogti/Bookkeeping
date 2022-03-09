@@ -44,13 +44,13 @@ class _CalendarMonthDialogState extends State<CalendarMonthDialog>
   int _selectedMonth;
 
   /// 容器宽度
-  final double _width = ScreenUtil.getInstance().setWidth(560);
+  final double _width = ScreenUtil().setWidth(560);
 
   /// 主轴间距
-  final double _spacing = ScreenUtil.getInstance().setWidth(16);
+  final double _spacing = ScreenUtil().setWidth(16);
 
   /// 纵轴间距
-  final double _runSpacing = ScreenUtil.getInstance().setWidth(16);
+  final double _runSpacing = ScreenUtil().setWidth(16);
 
   /// 左右间距
   final double _leftAndRightSpace = 30;

@@ -94,6 +94,7 @@ class _BillState extends State<Bill>
 
   double maxOffset = 150;
   double opacityValue = 0;
+
   void _onScrol(offset) {
     double alpha = offset / maxOffset;
     if (alpha < 0) {
@@ -115,7 +116,12 @@ class _BillState extends State<Bill>
   Widget build(BuildContext context) {
     super.build(context);
     // 适配
-    ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
+    ScreenUtil.init(
+        BoxConstraints(
+            maxWidth: MediaQuery.of(context).size.width,
+            maxHeight: MediaQuery.of(context).size.height),
+        designSize: Size(750, 1334),
+        context: context);
     return Scaffold(
       // key: _globalKey,
       // drawer: MyDrawer(), // 左边抽屉
@@ -186,7 +192,7 @@ class _BillState extends State<Bill>
       child: Text(
         '$_year-$_month',
         style: TextStyle(
-            fontSize: ScreenUtil.getInstance().setSp(34),
+            fontSize: ScreenUtil().setSp(34),
             color: opacityValue < 0.3
                 ? Colors.white.withOpacity(1.0 * (1 - opacityValue))
                 : Colours.app_main.withOpacity(1.0 * opacityValue)),
@@ -220,7 +226,7 @@ class _BillState extends State<Bill>
         elevation: 0.0, //去除导航栏阴影
         pinned: false, //导航栏固定
         expandedHeight: MediaQuery.of(context).padding.top +
-            ScreenUtil.getInstance().setWidth(390),
+            ScreenUtil().setWidth(390),
         flexibleSpace: _flexibleSpaceBar(),
         // actions: <Widget>[
         //   CupertinoButton(
@@ -248,7 +254,7 @@ class _BillState extends State<Bill>
             )
           : SliverPadding(
               padding:
-                  EdgeInsets.only(top: ScreenUtil.getInstance().setHeight(120)),
+                  EdgeInsets.only(top: ScreenUtil().setHeight(120)),
               sliver: SliverList(
                 delegate: SliverChildBuilderDelegate(
                     (BuildContext context, int index) {
@@ -283,16 +289,16 @@ class _BillState extends State<Bill>
                       '${_monthModel.isBudget == 1 ? Utils.formatDouble(double.parse((_monthModel.budget - _monthModel.expenMoney).toStringAsFixed(2))) : Utils.formatDouble(double.parse((_monthModel.incomeMoney - _monthModel.expenMoney).toStringAsFixed(2)))}',
                       style: TextStyle(
                           fontWeight: FontWeight.w500,
-                          fontSize: ScreenUtil.getInstance().setSp(56),
+                          fontSize: ScreenUtil().setSp(56),
                           color: Colors.white)),
                   Text(
                     '本月${_monthModel.isBudget == 1 ? '预算' : ''}结余',
                     style: TextStyle(
                         fontWeight: FontWeight.w400,
-                        fontSize: ScreenUtil.getInstance().setSp(26),
+                        fontSize: ScreenUtil().setSp(26),
                         color: Colors.white),
                   ),
-                  Gaps.vGap(ScreenUtil.getInstance().setHeight(15)),
+                  Gaps.vGap(ScreenUtil().setHeight(15)),
                 ],
               ),
             ),
@@ -318,7 +324,7 @@ class _BillState extends State<Bill>
               alignment: Alignment.center,
               children: <Widget>[
                 Positioned(
-                  bottom: ScreenUtil.getInstance().setHeight(16),
+                  bottom: ScreenUtil().setHeight(16),
                   child: Column(
                     children: <Widget>[
                       Text(
@@ -326,13 +332,13 @@ class _BillState extends State<Bill>
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
-                            fontSize: ScreenUtil.getInstance().setSp(36),
+                            fontSize: ScreenUtil().setSp(36),
                             color: Colors.white),
                       ),
                       Text('${Utils.formatDouble(double.parse(_month))}月支出',
                           style: TextStyle(
                               fontWeight: FontWeight.w400,
-                              fontSize: ScreenUtil.getInstance().setSp(26),
+                              fontSize: ScreenUtil().setSp(26),
                               color: Colors.white))
                     ],
                   ),
@@ -348,7 +354,7 @@ class _BillState extends State<Bill>
               alignment: Alignment.center,
               children: <Widget>[
                 Positioned(
-                  bottom: ScreenUtil.getInstance().setHeight(16),
+                  bottom: ScreenUtil().setHeight(16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
@@ -357,13 +363,13 @@ class _BillState extends State<Bill>
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
-                            fontSize: ScreenUtil.getInstance().setSp(36),
+                            fontSize: ScreenUtil().setSp(36),
                             color: Colors.white),
                       ),
                       Text('${Utils.formatDouble(double.parse(_month))}月收入',
                           style: TextStyle(
                               fontWeight: FontWeight.w400,
-                              fontSize: ScreenUtil.getInstance().setSp(26),
+                              fontSize: ScreenUtil().setSp(26),
                               color: Colors.white))
                     ],
                   ),
@@ -395,14 +401,14 @@ class _BillState extends State<Bill>
                       children: <Widget>[
                         Image.asset(
                           Utils.getImagePath('category/${model.image}'),
-                          width: ScreenUtil.getInstance().setWidth(55),
+                          width: ScreenUtil().setWidth(55),
                         ),
                         Gaps.hGap(12),
                         Text(
                           model.categoryName,
                           style: TextStyle(
                               fontWeight: FontWeight.w400,
-                              fontSize: ScreenUtil.getInstance().setSp(32),
+                              fontSize: ScreenUtil().setSp(32),
                               color: Colours.black),
                         ),
                         Expanded(
@@ -414,7 +420,7 @@ class _BillState extends State<Bill>
                             maxLines: 1,
                             style: TextStyle(
                                 fontWeight: FontWeight.w500,
-                                fontSize: ScreenUtil.getInstance().setSp(36),
+                                fontSize: ScreenUtil().setSp(36),
                                 color: Colours.dark),
                           ),
                         )
@@ -424,13 +430,13 @@ class _BillState extends State<Bill>
                         ? Padding(
                             padding: EdgeInsets.only(
                                 left:
-                                    ScreenUtil.getInstance().setWidth(55) + 12,
+                                    ScreenUtil().setWidth(55) + 12,
                                 top: 2),
                             child: Text(
                               model.remark,
                               style: TextStyle(
                                   fontWeight: FontWeight.w300,
-                                  fontSize: ScreenUtil.getInstance().setSp(30),
+                                  fontSize: ScreenUtil().setSp(30),
                                   color: Colours.black),
                             ),
                           )
@@ -477,13 +483,13 @@ class _BillState extends State<Bill>
                     children: <Widget>[
                       Image.asset(
                         Utils.getImagePath('icons/icon_calendar'),
-                        width: ScreenUtil.getInstance().setWidth(32),
+                        width: ScreenUtil().setWidth(32),
                       ),
                       Gaps.hGap(10),
                       Text(
                         group.date,
                         style: TextStyle(
-                            fontSize: ScreenUtil.getInstance().setSp(30),
+                            fontSize: ScreenUtil().setSp(30),
                             color: Colours.dark),
                       ),
                     ],
@@ -495,7 +501,7 @@ class _BillState extends State<Bill>
                       textAlign: TextAlign.right,
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: ScreenUtil.getInstance().setSp(28),
+                          fontSize: ScreenUtil().setSp(28),
                           color: Colours.dark),
                     ),
                   )

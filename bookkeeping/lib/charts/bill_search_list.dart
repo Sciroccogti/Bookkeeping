@@ -198,14 +198,14 @@ class BillSearchListState extends State<BillSearchList> {
                       children: <Widget>[
                         Image.asset(
                           Utils.getImagePath('category/${model.image}'),
-                          width: ScreenUtil.getInstance().setWidth(55),
+                          width: ScreenUtil().setWidth(55),
                         ),
                         Gaps.hGap(12),
                         Text(
                           model.categoryName,
                           style: TextStyle(
                             fontWeight: FontWeight.w400,
-                            fontSize: ScreenUtil.getInstance().setSp(32),
+                            fontSize: ScreenUtil().setSp(32),
                             color: Colours.black,
                             decoration: TextDecoration.none,
                           ),
@@ -220,7 +220,7 @@ class BillSearchListState extends State<BillSearchList> {
                             style: TextStyle(
                                 decoration: TextDecoration.none,
                                 fontWeight: FontWeight.w500,
-                                fontSize: ScreenUtil.getInstance().setSp(36),
+                                fontSize: ScreenUtil().setSp(36),
                                 color: Colours.dark),
                           ),
                         )
@@ -230,14 +230,14 @@ class BillSearchListState extends State<BillSearchList> {
                         ? Padding(
                             padding: EdgeInsets.only(
                                 left:
-                                    ScreenUtil.getInstance().setWidth(55) + 12,
+                                    ScreenUtil().setWidth(55) + 12,
                                 top: 2),
                             child: Text(
                               model.remark,
                               style: TextStyle(
                                   decoration: TextDecoration.none,
                                   fontWeight: FontWeight.w300,
-                                  fontSize: ScreenUtil.getInstance().setSp(30),
+                                  fontSize: ScreenUtil().setSp(30),
                                   color: Colours.black),
                             ),
                           )
@@ -284,14 +284,14 @@ class BillSearchListState extends State<BillSearchList> {
                     children: <Widget>[
                       Image.asset(
                         Utils.getImagePath('icons/icon_calendar'),
-                        width: ScreenUtil.getInstance().setWidth(28),
+                        width: ScreenUtil().setWidth(28),
                       ),
                       Gaps.hGap(8),
                       Text(
                         group.date,
                         style: TextStyle(
                           fontWeight: FontWeight.w400,
-                          fontSize: ScreenUtil.getInstance().setSp(28),
+                          fontSize: ScreenUtil().setSp(28),
                           color: Colours.dark,
                           decoration: TextDecoration.none,
                         ),
@@ -306,7 +306,7 @@ class BillSearchListState extends State<BillSearchList> {
                       style: TextStyle(
                           decoration: TextDecoration.none,
                           fontWeight: FontWeight.bold,
-                          fontSize: ScreenUtil.getInstance().setSp(28),
+                          fontSize: ScreenUtil().setSp(28),
                           color: Colours.dark),
                     ),
                   )

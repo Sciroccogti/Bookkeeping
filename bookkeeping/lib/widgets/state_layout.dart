@@ -31,7 +31,7 @@ class _StateLayoutState extends State<StateLayout> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           widget.isLoading
-              ? SpinKitPouringHourglass(color: Color(0xFF333333))
+              ? SpinKitPouringHourGlass(color: Color(0xFF333333))
               : (widget.image.isEmpty
                   ? Gaps.empty
                   : Image.asset(

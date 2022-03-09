@@ -141,7 +141,7 @@ class _MyKeyBoardState extends State<MyKeyBoard> {
   }
 
   static TextStyle _numberStyle = TextStyle(
-      fontSize: ScreenUtil.getInstance().setSp(40), color: Colours.dark);
+      fontSize: ScreenUtil().setSp(40), color: Colours.dark);
 
   Widget _buildSubItem(int index, double parentWidth) {
     switch (index) {
@@ -161,7 +161,7 @@ class _MyKeyBoardState extends State<MyKeyBoard> {
         return Text(
           '继续',
           style: TextStyle(
-              fontSize: ScreenUtil.getInstance().setSp(30),
+              fontSize: ScreenUtil().setSp(30),
               color: Colours.dark),
         );
         break;
@@ -169,7 +169,7 @@ class _MyKeyBoardState extends State<MyKeyBoard> {
         return Text(
           '清零',
           style: TextStyle(
-              fontSize: ScreenUtil.getInstance().setSp(30),
+              fontSize: ScreenUtil().setSp(30),
               color: Colours.dark),
         );
         break;
@@ -184,7 +184,7 @@ class _MyKeyBoardState extends State<MyKeyBoard> {
           '.',
           style: TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: ScreenUtil.getInstance().setSp(40),
+              fontSize: ScreenUtil().setSp(40),
               color: Colours.dark),
         );
         break;
@@ -192,7 +192,7 @@ class _MyKeyBoardState extends State<MyKeyBoard> {
         return Text(
           widget.isAdd ? '=' : '保存',
           style: TextStyle(
-              fontSize: ScreenUtil.getInstance().setSp(32),
+              fontSize: ScreenUtil().setSp(32),
               color: Colors.white),
         );
         break;

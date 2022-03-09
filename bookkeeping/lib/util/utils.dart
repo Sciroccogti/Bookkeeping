@@ -13,12 +13,20 @@ class Utils {
       nextFocus: true,
       actions: List.generate(
           list.length,
-          (i) => KeyboardAction(
+          (i) => KeyboardActionsItem(
                 focusNode: list[i],
-                closeWidget: const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-                  child: Text("关闭"),
-                ),
+                toolbarButtons: [
+                  (node) {
+                    return GestureDetector(
+                      onTap: () => node.unfocus(),
+                      child: Padding(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                        child: Text("关闭"),
+                      ),
+                    );
+                  }
+                ],
               )),
     );
   }

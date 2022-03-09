@@ -246,7 +246,7 @@ class _BookkeeppingState extends State<Bookkeepping>
                           maxLines: 1,
                           textAlign: TextAlign.right,
                           style: TextStyle(
-                              fontSize: ScreenUtil.getInstance().setSp(28),
+                              fontSize: ScreenUtil().setSp(28),
                               color: _remark.isEmpty
                                   ? Colours.gray
                                   : Colours.black),
@@ -306,7 +306,7 @@ class _BookkeeppingState extends State<Bookkeepping>
                   child: Text(
                     _numberString.isEmpty ? '0.0' : _numberString,
                     style: TextStyle(
-                      fontSize: ScreenUtil.getInstance().setSp(48),
+                      fontSize: ScreenUtil().setSp(48),
                     ),
                     maxLines: 1,
                     textAlign: TextAlign.right,
@@ -320,7 +320,7 @@ class _BookkeeppingState extends State<Bookkeepping>
                   return Container(
                     margin: const EdgeInsets.only(right: 14),
                     width: 2,
-                    height: ScreenUtil.getInstance().setSp(40),
+                    height: ScreenUtil().setSp(40),
                     decoration: BoxDecoration(
                         color: Colours.app_main
                             .withOpacity(0.8 * _animationController.value)),
@@ -515,9 +515,9 @@ class _BookkeeppingState extends State<Bookkeepping>
                   Image.asset(
                     Utils.getImagePath('category/${item.image}'),
                     width: selectedIndex == index
-                        ? ScreenUtil.getInstance()
+                        ? ScreenUtil()
                             .setWidth(60 + _tapItemController.value * 6)
-                        : ScreenUtil.getInstance().setWidth(50),
+                        : ScreenUtil().setWidth(50),
                     color: selectedIndex == index ? Colors.white : Colors.black,
                   ),
                   Gaps.vGap(3),
@@ -528,9 +528,9 @@ class _BookkeeppingState extends State<Bookkeepping>
                             ? Colors.white
                             : Colours.black,
                         fontSize: selectedIndex == index
-                            ? ScreenUtil.getInstance()
+                            ? ScreenUtil()
                                 .setSp(25 + 3 * _tapItemController.value)
-                            : ScreenUtil.getInstance().setSp(25)),
+                            : ScreenUtil().setSp(25)),
                   )
                 ],
               ),

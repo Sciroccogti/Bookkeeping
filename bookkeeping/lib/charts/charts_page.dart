@@ -229,7 +229,7 @@ class ChartState extends State<StatefulWidget>
                 )
               : SliverPadding(
                   padding: EdgeInsets.only(
-                      top: ScreenUtil.getInstance().setHeight(120)),
+                      top: ScreenUtil().setHeight(120)),
                   sliver: SliverList(
                     delegate: SliverChildBuilderDelegate(
                         (BuildContext context, int index) {
@@ -287,7 +287,7 @@ class ChartState extends State<StatefulWidget>
               child: Text(
                 '$_year-$_month',
                 style: TextStyle(
-                    fontSize: ScreenUtil.getInstance().setSp(34),
+                    fontSize: ScreenUtil().setSp(34),
                     color: Colours.app_main),
               ),
               onPressed: () {
@@ -360,23 +360,23 @@ class ChartState extends State<StatefulWidget>
           children: <Widget>[
             Image.asset(
               Utils.getImagePath('category/${model.image}'),
-              width: ScreenUtil.getInstance().setWidth(55),
+              width: ScreenUtil().setWidth(55),
             ),
-            Gaps.hGap(ScreenUtil.getInstance().setWidth(32)),
+            Gaps.hGap(ScreenUtil().setWidth(32)),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
                   model.categoryName,
                   style: TextStyle(
-                      fontSize: ScreenUtil.getInstance().setSp(32),
+                      fontSize: ScreenUtil().setSp(32),
                       color: Colours.dark),
                 ),
                 Text(
                   '${Utils.formatDouble(double.parse((model.ratio * 100).toStringAsFixed(2)))}% ${model.number}笔',
                   style: TextStyle(
                       fontWeight: FontWeight.w400,
-                      fontSize: ScreenUtil.getInstance().setSp(24),
+                      fontSize: ScreenUtil().setSp(24),
                       color: Colours.normalBlack),
                 )
               ],
@@ -389,7 +389,7 @@ class ChartState extends State<StatefulWidget>
                 textAlign: TextAlign.right,
                 maxLines: 1,
                 style: TextStyle(
-                    fontSize: ScreenUtil.getInstance().setSp(36),
+                    fontSize: ScreenUtil().setSp(36),
                     color: Colors.black),
               ),
             ),

@@ -48,9 +48,9 @@ class _TextViewDialogState extends State<TextViewDialog> {
       type: MaterialType.transparency,
       child: Center(
         child: Padding(
-          padding: EdgeInsets.only(bottom: ScreenUtil.getInstance().setHeight(160)),
+          padding: EdgeInsets.only(bottom: ScreenUtil().setHeight(160)),
           child: Container(
-            width: ScreenUtil.getInstance().setWidth(560),
+            width: ScreenUtil().setWidth(560),
             decoration: BoxDecoration(
                 color: Colors.white, borderRadius: BorderRadius.circular(8)),
             child: Column(
@@ -62,7 +62,7 @@ class _TextViewDialogState extends State<TextViewDialog> {
                   child: Text(
                     '填写备注',
                     style:
-                        TextStyle(fontSize: ScreenUtil.getInstance().setSp(32)),
+                        TextStyle(fontSize: ScreenUtil().setSp(32)),
                   ),
                 ),
                 Padding(
@@ -78,7 +78,7 @@ class _TextViewDialogState extends State<TextViewDialog> {
                     focusNode: _focusNode,
                     maxLines: 2,
                     style:
-                        TextStyle(fontSize: ScreenUtil.getInstance().setSp(32)),
+                        TextStyle(fontSize: ScreenUtil().setSp(32)),
                     textInputAction: TextInputAction.done,
                     decoration: InputDecoration(
                         hintText: '备注...', border: InputBorder.none),
